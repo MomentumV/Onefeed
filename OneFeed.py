@@ -13,7 +13,7 @@ class PodCast(FeedGenerator):
         This wrapper of FeedGenerator adds the podcast extension at creation.
         """
         super().__init__()
-        self.__download = False
+        self.__download = False # this property is to signal if the podcast should save the file when it updates
         self.load_extension('podcast')
 
     def set_download(self, download=False):
@@ -40,6 +40,23 @@ class OnePlacePodCast(PodCast):
         super().rss_file(filename, extensions, pretty, encoding, xml_declaration)
 
     def refresh(self):
+        """
+        Starts a headless Firefox browser to load the page and render the source. That source is passed into
+        BeautifulSoup to easily extract the latest link, title, description
+        :return:
+        """
+        opts = Options()
+        opts.headless = True
+        assert opts.headless  # Operating in headless mode
+        browser = Firefox(options=opts)
+        browser.get('https://www.oneplace.com/ministries/focus-on-the-familys-radio-theatre/')
+        time.sleep(2)
+        soup = BeautifulSoup(browser.page_source, features='html.parser')
+        browser.close()
+        title = soup.find('div', {"class": "overlay2"}).h2.text
+        description = soup.find('div', {"class": "description"}).text
+        audiotag = soup.find(id='jp_audio_0')
+        url = audiotag['src']
         # TODO retrieve page and extract information
         pass
         return
@@ -48,7 +65,6 @@ class OnePlacePodCast(PodCast):
 def main():
     page = 'https://www.oneplace.com/ministries/focus-on-the-familys-radio-theatre/'
     RadioTheatre = OnePlacePodCast(page)
-    RadioTheatre.dow
     RadioTheatre.title('Radio Theatre')
     RadioTheatre.description('The Weekly broadcast of the award winning audio dramas '
                              'from Focus on the Family, hosted by OnePlace.com')
