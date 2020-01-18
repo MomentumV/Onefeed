@@ -13,9 +13,14 @@ class PodCast(FeedGenerator):
         This wrapper of FeedGenerator adds the podcast extension at creation.
         """
         super().__init__()
+        self.__download = False
         self.load_extension('podcast')
-    # TODO future: subclass Podcast to make an archiver one that also stores the files...
-    #   Then, make OnePlace RT a subclass of that downloader class.
+
+    def set_download(self, download=False):
+        if download:
+            self.__download = True
+        return self.__download
+
 
 class OnePlacePodCast(PodCast):
     def __init__(self, page=None):
@@ -39,15 +44,18 @@ class OnePlacePodCast(PodCast):
         pass
         return
 
+
 def main():
     page = 'https://www.oneplace.com/ministries/focus-on-the-familys-radio-theatre/'
     RadioTheatre = OnePlacePodCast(page)
+    RadioTheatre.dow
     RadioTheatre.title('Radio Theatre')
     RadioTheatre.description('The Weekly broadcast of the award winning audio dramas '
                              'from Focus on the Family, hosted by OnePlace.com')
     RadioTheatre.id(page)
 
     return RadioTheatre
+
 
 if __name__ == '__main__':
     main()
