@@ -29,6 +29,9 @@ class OnePlacePodCast(PodCast):
         self.language('en')
         self.podcast.itunes_category('Christianity')
         self.pageUrl = page  # this is to be accessible and updated when this class is instanced
+        self.titlexpath = '//div[@class="overlay2"]//h2'  # might need customizing for each page?
+        self.descxpath = '//div[@class="description"]'
+        self.audioxpath = '//audio'
 
     # the pageUrl should be the url to be retrieved during updating.
     def rss_file(self, filename=None, pretty=True):
@@ -49,15 +52,13 @@ class OnePlacePodCast(PodCast):
         opts.headless = True
         assert opts.headless  # Operating in headless mode
         browser = Firefox(options=opts)
-        browser.get('https://www.oneplace.com/ministries/focus-on-the-familys-radio-theatre/')
-        time.sleep(2)
-        soup = BeautifulSoup(browser.page_source, features='html.parser')
+        browser.get(self.pageUrl)
+        time.sleep(4)
+        title = browser.find_element_by_xpath(self.titlexpath).text
+        description = browser.find_element_by_xpath(self.descxpath).text
+        url = browser.find_element_by_xpath(self.audioxpath).get_attribute('src')
         browser.close()
-        title = soup.find('div', {"class": "overlay2"}).h2.text
-        description = soup.find('div', {"class": "description"}).text
-        audiotag = soup.find(id='jp_audio_0')
-        url = audiotag['src']
-        # TODO retrieve page and extract information
+        # TODO check for last episode, if it exists
         pass
         return
 
