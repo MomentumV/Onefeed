@@ -1,7 +1,7 @@
-import os
+# import os
 from selenium.webdriver import Firefox
 from selenium.webdriver.firefox.options import Options
-from bs4 import BeautifulSoup
+# from bs4 import BeautifulSoup
 import time
 from feedgen.feed import FeedGenerator
 
@@ -54,12 +54,23 @@ class OnePlacePodCast(PodCast):
         browser = Firefox(options=opts)
         browser.get(self.pageUrl)
         time.sleep(4)
-        title = browser.find_element_by_xpath(self.titlexpath).text
-        description = browser.find_element_by_xpath(self.descxpath).text
-        url = browser.find_element_by_xpath(self.audioxpath).get_attribute('src')
+        ep_title = browser.find_element_by_xpath(self.titlexpath).text
+        ep_description = browser.find_element_by_xpath(self.descxpath).text
+        ep_url = browser.find_element_by_xpath(self.audioxpath).get_attribute('src')
         browser.close()
+        # TODO
         # TODO check for last episode, if it exists
-        pass
+        new = False  # assume it isn't new until proven
+        try:
+            newest = self.entry()[0]
+        except IndexError:
+            new = True
+        if not new:
+            if newest.title != ep_title:
+                new = True
+                # this could certainly be more sofisticated than checking for a match on the most recent.
+
+
         return
 
 
