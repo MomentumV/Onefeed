@@ -23,7 +23,7 @@ class PodCast(FeedGenerator):
 
 
 class OnePlacePodCast(PodCast):
-    def __init__(self, page=None):
+    def __init__(self, page=None, feedtitle=None,feeddesc=None):
         """
         a wrapper around the PodCast init(), which adds a few OnePlace specific details, and the
         xpaths needed for the extraction of episode details
@@ -41,7 +41,9 @@ class OnePlacePodCast(PodCast):
 
     def rss_file(self, filename=None, pretty=True):
         if filename is None:
-            filename = self.title() + ' rss.xml'
+            filename = self.title()+'_rss'
+        filename = ''.join([c if c.isalnum() else '_' for c in filename])
+        filename = filename+'.xml'
         extensions = True
         encoding = 'UTF-8'
         xml_declaration = True
