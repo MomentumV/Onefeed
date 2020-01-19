@@ -1,4 +1,5 @@
 # import os
+import urllib
 from selenium.webdriver import Firefox
 from selenium.webdriver.firefox.options import Options
 # from bs4 import BeautifulSoup
@@ -25,13 +26,21 @@ class PodCast(FeedGenerator):
 
 
 class OnePlacePodCast(PodCast):
-    def __init__(self, page=None, feedtitle=None,feeddesc=None):
+    def __init__(self, page=None, feedtitle=None,feeddesc=None,feedid=None):
         """
         a wrapper around the PodCast init(), which adds a few OnePlace specific details, and the
         xpaths needed for the extraction of episode details
         :param page: the url that is fetched during update
         """
         super().__init__()
+        if feedtitle is not None:
+            self.title(feedtitle)
+        if feeddesc is not None:
+            self.description(feeddesc)
+        if feedid is not None:
+            self.id(feedid)
+        else:
+            self.id(page)
         self.link(href='http://oneplace.com', rel='alternate')
         self.language('en')
         self.podcast.itunes_category('Christianity')
@@ -42,9 +51,10 @@ class OnePlacePodCast(PodCast):
         # the pageUrl should be the url to be retrieved during updating.
         self.limit = 6
 
+
     def rss_file(self, filename=None, pretty=True):
         if filename is None:
-            filename = self.title()+'_rss.xml'
+            filename = urllib.parse.quote_plus(self.title())+'+rss.xml'
         extensions = True
         encoding = 'UTF-8'
         xml_declaration = True
@@ -94,18 +104,3 @@ class OnePlacePodCast(PodCast):
         while self.limit > 0 and self.limit > len(self.entry()):
             self.remove_entry(self.entry()[-1])
         return ep
-
-
-def main():
-    page = 'https://www.oneplace.com/ministries/focus-on-the-familys-radio-theatre/'
-    RadioTheatre = OnePlacePodCast(page)
-    RadioTheatre.title('Radio Theatre')
-    RadioTheatre.description('The Weekly broadcast of the award winning audio dramas '
-                             'from Focus on the Family, hosted by OnePlace.com')
-    RadioTheatre.id(page)
-
-    return RadioTheatre
-
-
-if __name__ == '__main__':
-    main()
