@@ -13,7 +13,7 @@ class PodCast(FeedGenerator):
         This wrapper of FeedGenerator adds the podcast extension at creation.
         """
         super().__init__()
-        self.__download = False # this property is to signal if the podcast should save the file when it updates
+        self.__download = False  # this property is to signal if the podcast should save the file when it updates
         self.load_extension('podcast')
 
     def set_download(self, download=False):
@@ -24,6 +24,11 @@ class PodCast(FeedGenerator):
 
 class OnePlacePodCast(PodCast):
     def __init__(self, page=None):
+        """
+        a wrapper around the PodCast init(), which adds a few OnePlace specific details, and the
+        xpaths needed for the extraction of episode details
+        :param page: the url that is fetched during update
+        """
         super().__init__()
         self.link(href='http://oneplace.com', rel='alternate')
         self.language('en')
@@ -32,8 +37,8 @@ class OnePlacePodCast(PodCast):
         self.titlexpath = '//div[@class="overlay2"]//h2'  # might need customizing for each page?
         self.descxpath = '//div[@class="description"]'
         self.audioxpath = '//audio'
+        # the pageUrl should be the url to be retrieved during updating.
 
-    # the pageUrl should be the url to be retrieved during updating.
     def rss_file(self, filename=None, pretty=True):
         if filename is None:
             filename = self.title() + ' rss.xml'
@@ -58,20 +63,28 @@ class OnePlacePodCast(PodCast):
         ep_description = browser.find_element_by_xpath(self.descxpath).text
         ep_url = browser.find_element_by_xpath(self.audioxpath).get_attribute('src')
         browser.close()
-        # TODO
-        # TODO check for last episode, if it exists
         new = False  # assume it isn't new until proven
         try:
             newest = self.entry()[0]
         except IndexError:
+            # if the list has no elements, then any episode is a 'new' episode
             new = True
         if not new:
-            if newest.title != ep_title:
+            # check to see if the episode is the same as the last one. If so, don't add it again!
+            if newest.title == ep_title:
+                return None
+                # this could certainly be more sophisticated than checking for a match on the most recent,
+                # but this is probably good enough.
+            else:
                 new = True
-                # this could certainly be more sofisticated than checking for a match on the most recent.
-
-
-        return
+        assert new
+        ep = self.add_entry()
+        ep.id(ep_url)
+        ep.title(ep_title)
+        ep.description(ep_description)
+        ep.enclosure(ep_url, 0, 'audio/mpeg')
+        # TODO if download flagged, then download it.
+        return ep
 
 
 def main():
