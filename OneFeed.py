@@ -38,28 +38,30 @@ class OnePlacePodCast(PodCast):
         self.descxpath = '//div[@class="description"]'
         self.audioxpath = '//audio'
         # the pageUrl should be the url to be retrieved during updating.
+        self.limit = 6
 
     def rss_file(self, filename=None, pretty=True):
         if filename is None:
-            filename = self.title()+'_rss'
-        filename = ''.join([c if c.isalnum() else '_' for c in filename])
-        filename = filename+'.xml'
+            filename = self.title()+'_rss.xml'
         extensions = True
         encoding = 'UTF-8'
         xml_declaration = True
         super().rss_file(filename, extensions, pretty, encoding, xml_declaration)
 
-    def refresh(self):
+    def refresh(self, page=None):
         """
         Starts a headless Firefox browser to load the page and render the source. That source is passed into
         BeautifulSoup to easily extract the latest link, title, description
         :return:
         """
+        if page is None:
+            page = self.pageUrl
+        # would be good to do some regex checking on page passed in
         opts = Options()
         opts.headless = True
         assert opts.headless  # Operating in headless mode
         browser = Firefox(options=opts)
-        browser.get(self.pageUrl)
+        browser.get(page)
         time.sleep(4)
         ep_title = browser.find_element_by_xpath(self.titlexpath).text
         ep_description = browser.find_element_by_xpath(self.descxpath).text
@@ -86,6 +88,9 @@ class OnePlacePodCast(PodCast):
         ep.description(ep_description)
         ep.enclosure(ep_url, 0, 'audio/mpeg')
         # TODO if download flagged, then download it.
+        # respect episode count limit
+        while self.limit > 0 and self.limit > len(self.entry()):
+            self.remove_entry(self.entry()[-1])
         return ep
 
 
