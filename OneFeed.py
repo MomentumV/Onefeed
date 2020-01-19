@@ -19,6 +19,8 @@ class PodCast(FeedGenerator):
     def set_download(self, download=False):
         if download:
             self.__download = True
+        else:
+            self.__download = False
         return self.__download
 
 
