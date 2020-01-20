@@ -122,6 +122,6 @@ class OnePlacePodCast(PodCast):
                 shutil.copyfileobj(response.raw, out_file)
             del response
         # respect episode count limit
-        while self.limit > 0 and self.limit > len(self.entry()):
+        while 0 < self.limit < len(self.entry()):
             self.remove_entry(self.entry()[-1])
         return ep
