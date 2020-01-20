@@ -1,5 +1,8 @@
 # import os
+import shutil
 import urllib
+
+import requests
 from selenium.webdriver import Firefox
 from selenium.webdriver.firefox.options import Options
 # from bs4 import BeautifulSoup
@@ -16,12 +19,12 @@ class PodCast(FeedGenerator):
         super().__init__()
         self.__download = False  # this property is to signal if the podcast should save the file when it updates
         self.load_extension('podcast')
-        self.__downloadpath = None
+        self.downloadpath = None
 
     def set_download(self, download=False, path=None):
         if download:
             if path is None:
-                path = self.__downloadpath
+                path = self.downloadpath
             try:
                 assert path is not None
             except AssertionError:
@@ -106,12 +109,19 @@ class OnePlacePodCast(PodCast):
                 new = True
         assert new
         ep = self.add_entry()
-        ep.id(ep_url)
+        ep.id(hash(ep_url))
         ep.title(ep_title)
         ep.description(ep_description)
         ep.enclosure(ep_url, 0, 'audio/mpeg')
         # TODO if download flagged, then download it.
-
+        if self.set_download():
+            filename = '\\'.join([self.downloadpath,ep_title])
+            filename = filename + ep_url.split('.')[-1]
+            url = ep_url
+            response = requests.get(url, stream=True)
+            with open(filename, 'wb') as out_file:
+                shutil.copyfileobj(response.raw, out_file)
+            del response
         # respect episode count limit
         while self.limit > 0 and self.limit > len(self.entry()):
             self.remove_entry(self.entry()[-1])

@@ -9,6 +9,7 @@ desc = 'The Weekly broadcast of the award winning audio dramas ' \
        'from Focus on the Family, hosted by OnePlace.com'
 id = page
 RT = OneFeed.OnePlacePodCast(page, title, desc, id)
+RT.set_download(True, 'E:\\Audio Theatre and Drama\\OnePlace - Radio Theatre')
 RT.refresh(
     'https://www.oneplace.com/ministries/focus-on-the-familys-radio-theatre/listen/the-hiding-place-part-01-of-09-792544.html')
 RT.refresh(
