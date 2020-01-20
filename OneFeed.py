@@ -113,7 +113,6 @@ class OnePlacePodCast(PodCast):
         ep.title(ep_title)
         ep.description(ep_description)
         ep.enclosure(ep_url, 0, 'audio/mpeg')
-        # TODO if download flagged, then download it.
         if self.set_download():
             filename = '\\'.join([self.downloadpath,ep_title])
             filename = filename + ep_url.split('.')[-1]
