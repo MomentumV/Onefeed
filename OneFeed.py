@@ -27,7 +27,7 @@ class PodCast(FeedGenerator):
         else:
             return self.__download
 
-    def set_download(self, download=None, path=None):
+    def set_download(self, download, path=None):
         if download:
             if path is None:
                 path = self.__downloadpath
