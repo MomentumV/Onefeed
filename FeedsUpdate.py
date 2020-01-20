@@ -1,6 +1,6 @@
 
 import pickle
-from git_code import git_push
+import git_code
 
 # call the refresh of each feed and then write the rss feed
 with open('update.log', 'w') as log:
@@ -18,4 +18,4 @@ with open('update.log', 'w') as log:
 
     # the refresh wil download any flagged as such.
 # commit the project folder and push to github
-git_push()
+git_code.git_push()
