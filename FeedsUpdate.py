@@ -1,6 +1,7 @@
 
 import pickle
 import git_code
+import os
 from datetime import datetime
 with open('feeds.p', 'rb') as f:
     feeds = pickle.load(f)
@@ -14,11 +15,15 @@ with open('update.log', 'a') as log:
             log.write(str(datetime.now()))
             log.write(f':\texception updating {feed.title()}\n')
         if ep is None:
+            log.write(str(datetime.now()))
             log.write(f':\tNo new show for {feed.title()}\n')
         else:
+            log.write(str(datetime.now()))
             log.write(f':\t{ep.title()} added to {feed.title()}')
             # write out the rss file if there is an episode added
+            os.chdir(r'.\docs')
             feed.rss_file()
+            os.chdir(r'..')
 
     # the refresh wil download any flagged as such.
 # re-pickle the feeds file:
