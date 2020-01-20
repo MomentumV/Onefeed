@@ -19,28 +19,35 @@ class PodCast(FeedGenerator):
         super().__init__()
         self.__download = False  # this property is to signal if the podcast should save the file when it updates
         self.load_extension('podcast')
-        self.downloadpath = None
+        self.__downloadpath = None
 
-    def set_download(self, download=False, path=None):
+    def get_download(self, both=False):
+        if both:
+            return {'download': self.__download, 'path': self.__downloadpath}
+        else:
+            return self.__download
+
+    def set_download(self, download=None, path=None):
         if download:
             if path is None:
-                path = self.downloadpath
+                path = self.__downloadpath
             try:
                 assert path is not None
             except AssertionError:
-                print('If download is set, a path must be set. Use ".set_download(True, pathasastring)"\n'
+                print('If download is set, a path must be set. Use ".set_download(True, path_as_a_string)"\n'
                       ' Because no path has been given,download is not set.')
                 self.__download = False
                 return self.__download
-            # if there is a path provided, go ahead and set download to true
+            # if there is a path provided, go ahead and set download to true and set the path to the provided string
             self.__download = True
+            self.__downloadpath = path
         else:
             self.__download = False
-        return self.__download
+        return {'download': self.__download, 'path': self.__downloadpath}
 
 
 class OnePlacePodCast(PodCast):
-    def __init__(self, page=None, feedtitle=None,feeddesc=None,feedid=None):
+    def __init__(self, page=None, feedtitle=None, feeddesc=None, feedid=None):
         """
         a wrapper around the PodCast init(), which adds a few OnePlace specific details, and the
         xpaths needed for the extraction of episode details
@@ -65,10 +72,9 @@ class OnePlacePodCast(PodCast):
         # the pageUrl should be the url to be retrieved during updating.
         self.limit = 6
 
-
     def rss_file(self, filename=None, pretty=True):
         if filename is None:
-            filename = urllib.parse.quote_plus(self.title())+'+rss.xml'
+            filename = urllib.parse.quote_plus(self.title()) + '+rss.xml'
         extensions = True
         encoding = 'UTF-8'
         xml_declaration = True
@@ -113,8 +119,8 @@ class OnePlacePodCast(PodCast):
         ep.title(ep_title)
         ep.description(ep_description)
         ep.enclosure(ep_url, 0, 'audio/mpeg')
-        if self.set_download():
-            filename = '\\'.join([self.downloadpath,ep_title])
+        if self.get_download():
+            filename = '\\'.join([self.get_download(both=True)['path'], ep_title])
             filename = filename + ep_url.split('.')[-1]
             url = ep_url
             response = requests.get(url, stream=True)
