@@ -109,7 +109,7 @@ class OnePlacePodCast(PodCast):
                 new = True
         assert new
         ep = self.add_entry()
-        ep.id(hash(ep_url))
+        ep.id(str(hash(ep_url)))
         ep.title(ep_title)
         ep.description(ep_description)
         ep.enclosure(ep_url, 0, 'audio/mpeg')
