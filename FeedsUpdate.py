@@ -3,7 +3,7 @@ import pickle
 from git_code import git_push
 
 # call the refresh of each feed and then write the rss feed
-with open('update.log', 'wb') as log:
+with open('update.log', 'w') as log:
     for feed in feeds:
         try:
             ep = feed.refresh()
