@@ -19,7 +19,7 @@ with open('update.log', 'a') as log:
             log.write(f':\tNo new show for {feed.title()}\n')
         else:
             log.write(str(datetime.now()))
-            log.write(f':\t{ep.title()} added to {feed.title()}')
+            log.write(f':\t{ep.title()} added to {feed.title()}\n')
             # write out the rss file if there is an episode added
             os.chdir(r'.\docs')
             feed.rss_file()
