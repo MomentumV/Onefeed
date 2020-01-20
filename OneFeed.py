@@ -101,7 +101,6 @@ class OnePlacePodCast(PodCast):
             new = True
         if not new:
             # check to see if the episode is the same as the last one. If so, don't add it again!
-            print(ep_title)
             if newest.title() == ep_title:
                 return None
                 # this could certainly be more sophisticated than checking for a match on the most recent,
