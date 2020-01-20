@@ -65,6 +65,7 @@ class OnePlacePodCast(PodCast):
         self.link(href='http://oneplace.com', rel='alternate')
         self.language('en')
         self.podcast.itunes_category('Christianity')
+        self.podcast.itunes_category('Christianity')
         self.pageUrl = page  # this is to be accessible and updated when this class is instanced
         self.titlexpath = '//div[@class="overlay2"]//h2'  # might need customizing for each page?
         self.descxpath = '//div[@class="description"]'
