@@ -1,25 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom"
-     xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
-    <channel>
-        <title>Turning Point</title>
-        <link>http://oneplace.com</link>
-        <description>Dr. David Jeremiah's Turning Point Delivers the Unchanging Word of God to an Ever-Changing World
-        </description>
-        <docs>http://www.rssboard.org/rss-specification</docs>
-        <generator>python-feedgen</generator>
-        <language>en</language>
-        <lastBuildDate>Mon, 20 Jan 2020 19:27:19 +0000</lastBuildDate>
-        <itunes:category text="Christianity"/>
-        <item>
-            <title>God's Basic Plan of Economy, Part 2</title>
-            <description>You can plan detailed diet and workout programs, but you’ll see no benefit until you act on
-                them. It’s the same with tithing. Dr. David Jeremiah offers an encouraging word about becoming a
-                disciplined giver so that tithing becomes an expression of love and joy.
-            </description>
-            <guid isPermaLink="false">-597175343</guid>
-            <enclosure url="https://zcast.swncdn.com/episodes/zcast/turning-point/2020/01-20/794841/94_202012105211.mp3"
-                       length="0" type="audio/mpeg"/>
-        </item>
-    </channel>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>Turning Point</title>
+    <link>http://oneplace.com</link>
+    <description>Dr. David Jeremiah's Turning Point Delivers the Unchanging Word of God to an Ever-Changing World</description>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 20 Jan 2020 19:27:19 +0000</lastBuildDate>
+    <itunes:category text="Christianity"/>
+    <item>
+      <title>God's Basic Plan of Economy, Part 2</title>
+      <description>You can plan detailed diet and workout programs, but you’ll see no benefit until you act on them. It’s the same with tithing. Dr. David Jeremiah offers an encouraging word about becoming a disciplined giver so that tithing becomes an expression of love and joy. </description>
+      <guid isPermaLink="false">1220599542</guid>
+      <enclosure url="https://zcast.swncdn.com/episodes/zcast/turning-point/2020/01-20/794841/94_202012105211.mp3" length="0" type="audio/mpeg"/>
+    </item>
+  </channel>
 </rss>
