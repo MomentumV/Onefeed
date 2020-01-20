@@ -16,9 +16,20 @@ class PodCast(FeedGenerator):
         super().__init__()
         self.__download = False  # this property is to signal if the podcast should save the file when it updates
         self.load_extension('podcast')
+        self.__downloadpath = None
 
-    def set_download(self, download=False):
+    def set_download(self, download=False, path=None):
         if download:
+            if path is None:
+                path = self.__downloadpath
+            try:
+                assert path is not None
+            except AssertionError:
+                print('If download is set, a path must be set. Use ".set_download(True, pathasastring)"\n'
+                      ' Because no path has been given,download is not set.')
+                self.__download = False
+                return self.__download
+            # if there is a path provided, go ahead and set download to true
             self.__download = True
         else:
             self.__download = False
@@ -100,6 +111,7 @@ class OnePlacePodCast(PodCast):
         ep.description(ep_description)
         ep.enclosure(ep_url, 0, 'audio/mpeg')
         # TODO if download flagged, then download it.
+
         # respect episode count limit
         while self.limit > 0 and self.limit > len(self.entry()):
             self.remove_entry(self.entry()[-1])
