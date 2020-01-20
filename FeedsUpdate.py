@@ -13,6 +13,8 @@ with open('update.log', 'wb') as log:
             log.write(f'No new show for {feed.title()}')
         else:
             log.write(f'{ep.title()} added to {feed.title()}')
+            # write out the rss file if there is an episode added
+            feed.rss_file()
 
     # the refresh wil download any flagged as such.
 # commit the project folder and push to github
