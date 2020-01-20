@@ -121,7 +121,7 @@ class OnePlacePodCast(PodCast):
         ep.enclosure(ep_url, 0, 'audio/mpeg')
         if self.get_download():
             filename = '\\'.join([self.get_download(both=True)['path'], ep_title])
-            filename = filename + ep_url.split('.')[-1]
+            filename = filename + '.' + ep_url.split('.')[-1]
             url = ep_url
             response = requests.get(url, stream=True)
             with open(filename, 'wb') as out_file:
