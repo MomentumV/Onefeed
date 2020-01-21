@@ -1,54 +1,109 @@
-<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom"
-     xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
-  <channel>
-    <title>Radio Theatre</title>
-    <link>http://oneplace.com</link>
-    <description>The Weekly broadcast of the award winning audio dramas from Focus on the Family, hosted by
-      OnePlace.com
-    </description>
-    <docs>http://www.rssboard.org/rss-specification</docs>
-    <generator>python-feedgen</generator>
-    <language>en</language>
-    <lastBuildDate>Mon, 20 Jan 2020 19:25:57 +0000</lastBuildDate>
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+     xmlns:googleplay="http://www.google.com/schemas/play-podcasts/1.0" xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
 
-    <itunes:category text="Religion &amp; Spirituality">
-      <itunes:category text="Christianity"/>
-    </itunes:category>
-    <item>
-      <title>The Hiding Place, Part 03 of 09</title>
-      <description>the story of two spinster daughters, Corrie and Betsie, unlikely heroes who became the center of a
-        major underground operation to hide Jewish refugees from the occupying Germans. Even when betrayed and sent away
-        to the dreaded Ravensbruck concentration camp, they manage to create another Hiding Place for those around them.
-        This innovative audio drama closely follows the account of Corrie Ten Boom and features a moving musical score.
-      </description>
-      <guid isPermaLink="false">-1436279389</guid>
-      <enclosure
-              url="https://zcast.swncdn.com/episodes/zcast/focus-on-the-familys-radio-theatre/2020/01-18/792546/999_201912551015.mp3"
-              length="0" type="audio/mpeg"/>
-    </item>
-    <item>
-      <title>The Hiding Place, Part 02 of 09</title>
-      <description>became the center of a major underground operation to hide Jewish refugees from the occupying
-        Germans. Even when betrayed and sent away to the dreaded Ravensbruck concentration camp, they manage to create
-        another Hiding Place for those around them. This innovative audio drama closely follows the account of Corrie
-        Ten Boom and features a moving musical score.
-      </description>
-      <guid isPermaLink="false">-401669843</guid>
-      <enclosure
-              url="https://zcast.swncdn.com/episodes/zcast/focus-on-the-familys-radio-theatre/2020/01-11/792545/999_20191255103.mp3"
-              length="0" type="audio/mpeg"/>
-    </item>
-    <item>
-      <title>The Hiding Place, Part 01 of 09</title>
-      <description>unlikely heroes who became the center of a major underground operation to hide Jewish refugees from
-        the occupying Germans. Even when betrayed and sent away to the dreaded Ravensbruck concentration camp, they
-        manage to create another Hiding Place for those around them. This innovative audio drama closely follows the
-        account of Corrie Ten Boom and features a moving musical score.
-      </description>
-      <guid isPermaLink="false">-1891824151</guid>
-      <enclosure
-              url="https://zcast.swncdn.com/episodes/zcast/focus-on-the-familys-radio-theatre/2020/01-04/792544/999_20191255953.mp3"
-              length="0" type="audio/mpeg"/>
-    </item>
-  </channel>
+    <channel>
+        <atom:link href="http://momentumv.github.io/Onefeed/pod.xml" rel="self" type="application/rss+xml"/>
+        <title>The Journal MIRROR</title>
+        <link>https://www.wsj.com/podcasts/the-journal</link>
+        <language>en</language>
+        <copyright>None</copyright>
+        <description>The most important stories, explained through the lens of business. A podcast about money, business
+            and power. Hosted by Kate Linebaugh and Ryan Knutson. The Journal is a co-production from Gimlet Media and
+            The Wall Street Journal.
+        </description>
+        <image>
+            <url>
+                https://megaphone-prod.s3.amazonaws.com/podcasts/b84f9932-8174-11e9-bbd8-7f261513f0c9/image/uploads_2F1561040082498-zy8ikpbsyrk-39d76d123a16ce578b92fd0dcf294018_2Fdownload.jpeg
+            </url>
+            <title>The Journal.</title>
+            <link>https://www.wsj.com/podcasts/the-journal</link>
+        </image>
+        <itunes:explicit>no</itunes:explicit>
+        <itunes:type>episodic</itunes:type>
+        <itunes:subtitle></itunes:subtitle>
+        <itunes:author>The Wall Street Journal &amp; Gimlet</itunes:author>
+        <itunes:summary>The most important stories, explained through the lens of business. A podcast about money,
+            business and power. Hosted by Kate Linebaugh and Ryan Knutson. The Journal is a co-production from Gimlet
+            Media and The Wall Street Journal.
+        </itunes:summary>
+        <content:encoded>
+            <![CDATA[<p>The most important stories, explained through the lens of business. A podcast about money, business and power. Hosted by Kate Linebaugh and Ryan Knutson.  The Journal is a co-production from Gimlet Media and The Wall Street Journal.</p>]]>
+        </content:encoded>
+        <itunes:owner>
+            <itunes:name>The Wall Street Journal</itunes:name>
+            <itunes:email>podcasts@dowjones.com</itunes:email>
+        </itunes:owner>
+        <itunes:image
+                href="https://megaphone-prod.s3.amazonaws.com/podcasts/b84f9932-8174-11e9-bbd8-7f261513f0c9/image/uploads_2F1561040082498-zy8ikpbsyrk-39d76d123a16ce578b92fd0dcf294018_2Fdownload.jpeg"/>
+        <itunes:category text="Business">
+        </itunes:category>
+        <itunes:category text="News">
+        </itunes:category>
+        <item>
+            <title>How the Grounded Boeing Jet Shook the Airline Industry</title>
+            <description>The Boeing 737 MAX has been grounded for nearly a year after two deadly crashes. WSJ's Alison
+                Sider explains how the plane's grounding has upended carriers like American Airlines and rippled through
+                the aviation industry.
+            </description>
+            <pubDate>Fri, 17 Jan 2020 21:30:53 -0000</pubDate>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:author>The Wall Street Journal &amp; Gimlet</itunes:author>
+            <itunes:subtitle/>
+            <itunes:summary>The Boeing 737 MAX has been grounded for nearly a year after two deadly crashes. WSJ's
+                Alison Sider explains how the plane's grounding has upended carriers like American Airlines and rippled
+                through the aviation industry.
+            </itunes:summary>
+            <content:encoded>
+                <![CDATA[The Boeing 737 MAX has been grounded for nearly a year after two deadly crashes. WSJ's Alison Sider explains how the plane's grounding has upended carriers like American Airlines and rippled through the aviation industry.]]>
+            </content:encoded>
+            <itunes:duration>959</itunes:duration>
+            <guid isPermaLink="false"><![CDATA[b3d8d90e-f235-11e9-9229-0355dc40d274]]></guid>
+            <enclosure url="https://traffic.megaphone.fm/WSJ4351707800.mp3" length="0" type="audio/mpeg"/>
+        </item>
+        <item>
+            <title>The Government's Quest to Crack Into iPhones</title>
+            <description>Attorney General William Barr criticized Apple on Monday for not helping the Department of
+                Justice get into the iPhones of the Florida naval base shooter. WSJ's Robert McMillan explains Apple's
+                philosophy on letting the government in.
+            </description>
+            <pubDate>Thu, 16 Jan 2020 21:41:56 -0000</pubDate>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:author>The Wall Street Journal &amp; Gimlet</itunes:author>
+            <itunes:subtitle/>
+            <itunes:summary>Attorney General William Barr criticized Apple on Monday for not helping the Department of
+                Justice get into the iPhones of the Florida naval base shooter. WSJ's Robert McMillan explains Apple's
+                philosophy on letting the government in.
+            </itunes:summary>
+            <content:encoded>
+                <![CDATA[Attorney General William Barr criticized Apple on Monday for not helping the Department of Justice get into the iPhones of the Florida naval base shooter. WSJ's Robert McMillan explains Apple's philosophy on letting the government in.]]>
+            </content:encoded>
+            <itunes:duration>1342</itunes:duration>
+            <guid isPermaLink="false"><![CDATA[898c3ffc-f16c-11e9-98a5-f30a1eecb947]]></guid>
+            <enclosure url="https://traffic.megaphone.fm/WSJ7613468055.mp3?updated=1579270931" length="0"
+                       type="audio/mpeg"/>
+        </item>
+        <item>
+            <title>How Airbnb Deals With Crime</title>
+            <description>After a deadly mass shooting, Airbnb faced questions about how much responsibility it has for
+                safety at the properties listed on its site. WSJ's Kirsten Grind investigates Airbnb's efforts to fight
+                crime on its platform.
+            </description>
+            <pubDate>Wed, 15 Jan 2020 21:30:32 -0000</pubDate>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:author>The Wall Street Journal &amp; Gimlet</itunes:author>
+            <itunes:subtitle/>
+            <itunes:summary>After a deadly mass shooting, Airbnb faced questions about how much responsibility it has
+                for safety at the properties listed on its site. WSJ's Kirsten Grind investigates Airbnb's efforts to
+                fight crime on its platform.
+            </itunes:summary>
+            <content:encoded>
+                <![CDATA[After a deadly mass shooting, Airbnb faced questions about how much responsibility it has for safety at the properties listed on its site. WSJ's Kirsten Grind investigates Airbnb's efforts to fight crime on its platform.]]>
+            </content:encoded>
+            <itunes:duration>1221</itunes:duration>
+            <guid isPermaLink="false"><![CDATA[5ee6bcf6-f0a3-11e9-8c77-b7e019dab584]]></guid>
+            <enclosure url="https://traffic.megaphone.fm/WSJ8143400490.mp3" length="0" type="audio/mpeg"/>
+        </item>
+    </channel>
 </rss>
