@@ -3,7 +3,7 @@
      xmlns:googleplay="http://www.google.com/schemas/play-podcasts/1.0" xmlns:atom="http://www.w3.org/2005/Atom"
      xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <atom:link href="http://momentumv.github.io/Onefeed/pod.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="http://momentumv.github.io/Onefeed/RT.xml" rel="self" type="application/rss+xml"/>
     <title>Radio Theatre</title>
     <link>http://oneplace.com</link>
     <language>en</language>
@@ -15,6 +15,8 @@
       <url>
         https://megaphone-prod.s3.amazonaws.com/podcasts/b84f9932-8174-11e9-bbd8-7f261513f0c9/image/uploads_2F1561040082498-zy8ikpbsyrk-39d76d123a16ce578b92fd0dcf294018_2Fdownload.jpeg
       </url>
+      <title>Not the real logo</title>
+      <link>http://momentumv.github.io/Onefeed/RT.xml</link>
     </image>
     <language>en</language>
     <lastBuildDate>Mon, 20 Jan 2020 19:25:57 +0000</lastBuildDate>
