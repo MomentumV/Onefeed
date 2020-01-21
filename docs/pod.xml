@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:googleplay="http://www.google.com/schemas/play-podcasts/1.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
- <channel>
-   <atom:link href="http://momentumv.github.io/Onefeed/pod.xml" rel="self" type="application/rss+xml"/>
-   <title>The Journal MIRROR</title>
-   <link>https://www.wsj.com/podcasts/the-journal</link>
-   <language>en</language>
-   <copyright>None</copyright>
-   <description>The most important stories, explained through the lens of business. A podcast about money, business and power. Hosted by Kate Linebaugh and Ryan Knutson.  The Journal is a co-production from Gimlet Media and The Wall Street Journal.</description>
-   <image>
-     <url>https://megaphone-prod.s3.amazonaws.com/podcasts/b84f9932-8174-11e9-bbd8-7f261513f0c9/image/uploads_2F1561040082498-zy8ikpbsyrk-39d76d123a16ce578b92fd0dcf294018_2Fdownload.jpeg</url>
-     <title>The Journal.</title>
-     <link>https://www.wsj.com/podcasts/the-journal</link>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+     xmlns:googleplay="http://www.google.com/schemas/play-podcasts/1.0" xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+
+    <channel>
+        <atom:link href="http://momentumv.github.io/Onefeed/pod.xml" rel="self" type="application/rss+xml"/>
+        <title>The Journal MIRROR</title>
+        <link>https://www.wsj.com/podcasts/the-journal</link>
+        <language>en</language>
+        <copyright>None</copyright>
+        <description>The most important stories, explained through the lens of business. A podcast about money, business
+            and power. Hosted by Kate Linebaugh and Ryan Knutson. The Journal is a co-production from Gimlet Media and
+            The Wall Street Journal.
+        </description>
+        <image>
+            <url>
+                https://megaphone-prod.s3.amazonaws.com/podcasts/b84f9932-8174-11e9-bbd8-7f261513f0c9/image/uploads_2F1561040082498-zy8ikpbsyrk-39d76d123a16ce578b92fd0dcf294018_2Fdownload.jpeg
+            </url>
+            <title>The Journal.</title>
+            <link>https://www.wsj.com/podcasts/the-journal</link>
    </image>
    <itunes:explicit>no</itunes:explicit>
    <itunes:type>episodic</itunes:type>
