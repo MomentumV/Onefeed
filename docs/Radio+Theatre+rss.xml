@@ -3,20 +3,29 @@
      xmlns:googleplay="http://www.google.com/schemas/play-podcasts/1.0" xmlns:atom="http://www.w3.org/2005/Atom"
      xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-     <atom:link href="http://momentumv.github.io/Onefeed/pod.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="http://momentumv.github.io/Onefeed/pod.xml" rel="self" type="application/rss+xml"/>
     <title>Radio Theatre</title>
     <link>http://oneplace.com</link>
+    <language>en</language>
+    <copyright>OnePlace.com</copyright>
     <description>The Weekly broadcast of the award winning audio dramas from Focus on the Family, hosted by
       OnePlace.com
     </description>
-    <docs>http://www.rssboard.org/rss-specification</docs>
-    <generator>python-feedgen</generator>
+    <image>
+      <url>
+        https://megaphone-prod.s3.amazonaws.com/podcasts/b84f9932-8174-11e9-bbd8-7f261513f0c9/image/uploads_2F1561040082498-zy8ikpbsyrk-39d76d123a16ce578b92fd0dcf294018_2Fdownload.jpeg
+      </url>
+    </image>
     <language>en</language>
     <lastBuildDate>Mon, 20 Jan 2020 19:25:57 +0000</lastBuildDate>
-
+    <itunes:explicit>no</itunes:explicit>
     <itunes:category text="Religion &amp; Spirituality">
       <itunes:category text="Christianity"/>
     </itunes:category>
+    <itunes:author>OnePlace.com</itunes:author>
+    <itunes:summary>The Weekly broadcast of the award winning audio dramas from Focus on the Family, hosted by
+      OnePlace.com
+    </itunes:summary>
     <item>
       <title>The Hiding Place, Part 03 of 09</title>
       <description>the story of two spinster daughters, Corrie and Betsie, unlikely heroes who became the center of a
