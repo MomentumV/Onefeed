@@ -11,12 +11,12 @@
     </description>
     <image>
       <url>
-        https://www.freewebs.com/knowledge_sharers/RT.jpg
+        https://momentumv.github.io/Onefeed/Files/RT.jpg
       </url>
       <title>Radio Theatre</title>
       <link>http://momentumv.github.io/Onefeed/RT.xml</link>
     </image>
-    <itunes:image href="https://www.freewebs.com/knowledge_sharers/RT.jpg"/>
+    <itunes:image href="https://momentumv.github.io/Onefeed/Files/RT.jpg"/>
     <language>en</language>
     <itunes:explicit>no</itunes:explicit>
     <itunes:category text="Religion &amp; Spirituality">
