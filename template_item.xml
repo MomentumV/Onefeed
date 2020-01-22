@@ -1,0 +1,17 @@
+ <item>
+      <guid isPermaLink="false"><![CDATA[{guid}]]></guid>
+      <title>{title}</title>
+      <description>
+      {description}
+      </description>
+      <itunes:author>{author}
+      </itunes:author>
+      <itunes:subtitle/>
+      <itunes:summary>
+       {description}
+      </itunes:summary>
+      <pubDate>{pubdate}</pubDate>
+      <enclosure
+              url="{url}"
+              length="0" type="audio/mpeg"/>
+ </item>
