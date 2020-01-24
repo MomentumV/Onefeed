@@ -10,6 +10,15 @@ import time
 from feedgen.feed import FeedGenerator
 
 
+class Podcast(object):
+    """
+    This class is designed to hold all the details required for generating a podcast.
+    It includes a default string to use for the RSS feed.
+    It also includes a not implemented mehtod for updating/finding new episodes.
+    This should be implemented in whatever subclasses are needed.
+    """
+
+
 # each "show" has its own object, that gets updater functions added to it
 class PodCast(FeedGenerator):
     def __init__(self):
@@ -17,7 +26,7 @@ class PodCast(FeedGenerator):
         This wrapper of FeedGenerator adds the podcast extension at creation.
         """
         super().__init__()
-        self.__download = False  # this property is to signal if the podcast should save the file when it updates
+        self.__download = False  # this is to signal if the podcast should save the file when it updates
         self.load_extension('podcast')
         self.__downloadpath = None
 
