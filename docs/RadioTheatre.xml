@@ -4,7 +4,7 @@
   <channel>
     <atom:link href="http://momentumv.github.io/Onefeed/RadioTheatre.xml" rel="self" type="application/rss+xml"/>
     <title>Radio Theatre</title>
-    <link>http://oneplace.com</link>
+    <link>https://www.oneplace.com/ministries/focus-on-the-familys-radio-theatre/</link>
     <copyright>OnePlace.com</copyright>
     <description>The Weekly broadcast of the award winning audio dramas from Focus on the Family, hosted by
       OnePlace.com
@@ -14,7 +14,7 @@
         https://momentumv.github.io/Onefeed/Files/RT.jpg
       </url>
       <title>Radio Theatre</title>
-      <link>http://momentumv.github.io/Onefeed/RadioTheatre.xml</link>
+      <link>https://www.oneplace.com/ministries/focus-on-the-familys-radio-theatre/</link>
     </image>
     <itunes:image href="https://momentumv.github.io/Onefeed/Files/RT.jpg"/>
     <language>en</language>

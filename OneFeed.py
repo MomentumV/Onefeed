@@ -70,16 +70,34 @@ class OnePlacePodCast(PodCast):
         self.titlexpath = '//div[@class="overlay2"]//h2'  # might need customizing for each page?
         self.descxpath = '//div[@class="description"]'
         self.audioxpath = '//audio'
+        self.datexpath = '//div[@class="overlay2"]//div[@class="liveDate"]'
         # the pageUrl should be the url to be retrieved during updating.
         self.limit = 6
 
-    def rss_file(self, filename=None, pretty=True):
-        if filename is None:
-            filename = urllib.parse.quote_plus(self.title()) + '+rss.xml'
-        extensions = True
-        encoding = 'UTF-8'
-        xml_declaration = True
-        super().rss_file(filename, extensions, pretty, encoding, xml_declaration)
+    def rss_file(self, filename):
+        fields = dict(self_url=None,
+                      feed_title=None,
+                      feed_link=None,
+                      copyright=None,
+                      feed_desc=None,
+                      feed_image_url=None,
+                      feed_category=None,
+                      feed_subcategory=None,
+                      feed_author=None,
+                      feed_owner=None,
+                      feed_email=None,
+                      feed_summary=feed_desc,
+                      feed_build=datetime.now().strftime(
+                          "%a, %d %b %Y %H:%M:%S") + ' +0000')  # Mon, 20 Jan 2020 19:25:57 +0000
+        with open('template_feed_head.xml', 'r') as f:
+            template = f.read()
+        with open('template_item.xml', 'r') as f:
+            item_text = f.read()
+        with open(f'{selflink}', 'w') as rss:
+            rss.write(template.format(**fields))
+        with open(f'{selflink}', 'a') as rss:
+            for e in self.entry():
+                rss.write(item_text.format(**ep_fields))
 
     def refresh(self, page=None):
         """
@@ -99,6 +117,7 @@ class OnePlacePodCast(PodCast):
         ep_title = browser.find_element_by_xpath(self.titlexpath).text
         ep_description = browser.find_element_by_xpath(self.descxpath).text
         ep_url = browser.find_element_by_xpath(self.audioxpath).get_attribute('src')
+        ep_date = browser.find_element_by_xpath(self.datexpath).text
         browser.close()
         new = False  # assume it isn't new until proven
         try:
@@ -120,6 +139,7 @@ class OnePlacePodCast(PodCast):
         ep.title(ep_title)
         ep.description(ep_description)
         ep.enclosure(ep_url, 0, 'audio/mpeg')
+        ep.pubDate(ep_date)
         if self.get_download():
             filename = '\\'.join([self.get_download(both=True)['path'], ep_title])
             filename = filename + '.' + ep_url.split('.')[-1]
