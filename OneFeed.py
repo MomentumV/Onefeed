@@ -58,6 +58,24 @@ class Podcast:
          "    </channel>\n"
          "</rss>")
 
+    def __init__(self, title=None):
+        self.feed_title = 'title'
+        self.feed_link = ''
+        self.copyright = ''
+        self.feed_desc = ''
+        self.feed_image_url = ''
+        self.feed_category = ''
+        self.feed_subcategory = ''
+        self.feed_author = ''
+        self.feed_owner = ''
+        self.feed_email = ''
+        self.feed_summary = ''
+        self.feed_build = ''
+        self.items_string = ''
+        self.entries = []
+
+        pass
+
     class Entry:
         """
         A single object that holds all the details needed for a podcast item tag
@@ -90,10 +108,6 @@ class Podcast:
 
         def __repr__(self):
             return self.item_template.format(**vars(self))
-
-    def __init__(self, title=None):
-        self.title = 'title'
-        pass
 
     def refresh(self, page=None):
         raise NotImplementedError
