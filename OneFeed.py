@@ -9,14 +9,92 @@ from selenium.webdriver.firefox.options import Options
 import time
 from feedgen.feed import FeedGenerator
 
+class Entry:
+    """
+    A single object that holds all the details needed for a podcast item tag
 
-class Podcast(object):
+    """
+    item_template = \
+        ('<item>\n'
+         '      <guid isPermaLink="false"><![CDATA[{guid}]]></guid>\n'
+         '      <title>{title}</title>\n'
+         '      <description>\n'
+         '      {description}\n'
+         '      </description>\n'
+         '      <itunes:author>{author}\n'
+         '      </itunes:author>\n'
+         '      <itunes:subtitle/>\n'
+         '      <itunes:summary>\n'
+         '       {description}\n'
+         '      </itunes:summary>\n'
+         '      <pubDate>{pubdate}</pubDate>\n'
+         '      <enclosure url="{url}" length="0" type="audio/mpeg"/>\n'
+         ' </item>')
+
+    def __init__(self):
+        self.guid = ''
+        self.title = ''
+        self.description = ''
+        self.author = ''
+        self.pubdate = ''
+        self.url = ''
+
+    def __repr__(self):
+        return self.item_template.format(**vars(self))
+
+
+class Podcast:
     """
     This class is designed to hold all the details required for generating a podcast.
     It includes a default string to use for the RSS feed.
-    It also includes a not implemented mehtod for updating/finding new episodes.
+    It also includes a not implemented method for updating/finding new episodes.
     This should be implemented in whatever subclasses are needed.
     """
+    self.feed_text = \
+        ("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+         "<rss version=\"2.0\" xmlns:itunes=\"http://www.itunes.com/dtds/podcast-1.0.dtd\" "
+         "xmlns:atom=\"http://www.w3.org/2005/Atom\" "
+         "xmlns:media=\"http://search.yahoo.com/mrss/\" "
+         "xmlns:content=\"http://purl.org/rss/1.0/modules/content/\">\n"
+         "<channel>\n"
+         "    <atom:link href=\"{self_url}\" rel=\"self\" type=\"application/rss+xml\"/>\n"
+         "    <title>{feed_title}</title>\n"
+         "    <link>{feed_link}</link>\n"
+         "    <copyright>{copyright}</copyright>\n"
+         "    <description>\n"
+         "        {feed_desc}\n"
+         "    </description>\n"
+         "    <image>\n"
+         "        <url>\n"
+         "            {feed_image_url}\n"
+         "        </url>\n"
+         "        <title>{feed_title}</title>\n"
+         "        <link>{feed_link}</link>\n"
+         "    </image>\n"
+         "    <itunes:image href=\"{feed_image_url}\"/>\n"
+         "    <language>en</language>\n"
+         "    <itunes:explicit>no</itunes:explicit>\n"
+         "    <itunes:category text=\"{feed_category}\">\n"
+         "        <itunes:category text=\"{feed_subcategory}\"/>\n"
+         "    </itunes:category>\n"
+         "    <itunes:author>{feed_author}</itunes:author>\n"
+         "    <itunes:owner>\n"
+         "        <itunes:name>{feed_owner}</itunes:name>\n"
+         "        <itunes:email>{feed_email}</itunes:email>\n"
+         "    </itunes:owner>\n"
+         "    <itunes:summary>{feed_summary}\n"
+         "    </itunes:summary>\n"
+         "    <lastBuildDate>{feed_build}</lastBuildDate>\n"
+         " {items_string}\n"
+         "    </channel>\n"
+         "</rss>")
+
+    def __init__(self):
+
+    def refresh(self, page=None):
+        raise NotImplementedError
+
+    def write_rss(self, filename=None):
 
 
 # each "show" has its own object, that gets updater functions added to it
