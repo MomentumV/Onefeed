@@ -7,17 +7,17 @@ from selenium.webdriver import Firefox
 from selenium.webdriver.firefox.options import Options
 # from bs4 import BeautifulSoup
 import time
-from feedgen.feed import FeedGenerator
+from datetime import datetime
 
 
-class Podcast:
+class PodCast:
     """
     This class is designed to hold all the details required for generating a podcast.
     It includes a default string to use for the RSS feed.
     It also includes a not implemented method for updating/finding new episodes.
     This should be implemented in whatever subclasses are needed.
     """
-    self.feed_text = \
+    feed_text = \
         ("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
          "<rss version=\"2.0\" xmlns:itunes=\"http://www.itunes.com/dtds/podcast-1.0.dtd\" "
          "xmlns:atom=\"http://www.w3.org/2005/Atom\" "
@@ -86,9 +86,29 @@ class Podcast:
         self.download = False
         self.download_path = None
         self.limit = 0
+        empty_dict = {
+            'feed_title': '',
+            'feed_link': '',
+            'copyright': '',
+            'feed_desc': '',
+            'feed_image_url': '',
+            'feed_category': '',
+            'feed_subcategory': '',
+            'feed_author': '',
+            'feed_owner': '',
+            'feed_email': '',
+            'feed_summary': '',
+            'feed_build': '',
+            'items_string': ''
+        }
+        # populate empty parameters
+        for key in empty_dict:
+            setattr(self, key, empty_dict[key])
+        # populate parameters from passed in dictionary
         for dictionary in initial_data:
             for key in dictionary:
                 setattr(self, key, dictionary[key])
+        # populate parameters from keywords passed in
         for key in kwargs:
             setattr(self, key, kwargs[key])
         self.__entries = []
@@ -144,12 +164,12 @@ class Podcast:
     def __str__(self):
         return self.feed_text.format(**vars(self))
 
+
 class OnePlacePodCast(PodCast):
     def __init__(self, *dicts, **kwargs):
         """
         docstring TODO yeah
         """
-        super.__init__(self, *dicts, **kwargs)
         self.feed_category = 'Religion &amp; Spirituality'
         self.feed_subcategory = 'Christianity'
         self.titlexpath = '//div[@class="overlay2"]//h2'  # might need customizing for each page?
@@ -157,7 +177,7 @@ class OnePlacePodCast(PodCast):
         self.audioxpath = '//audio'
         self.datexpath = '//div[@class="overlay2"]//div[@class="liveDate"]'
         self.page = None
-
+        super().__init__(*dicts, **kwargs)
 
     def refresh(self, page=None):
         """
@@ -194,7 +214,7 @@ class OnePlacePodCast(PodCast):
             else:
                 new = True
         assert new
-        ep = self.entry()
+        ep = self.Entry()
         ep.guid = str(hash(ep_url))
         ep.title = ep_title
         ep.description = ep_description
