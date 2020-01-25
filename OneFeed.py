@@ -10,8 +10,6 @@ import time
 from feedgen.feed import FeedGenerator
 
 
-
-
 class Podcast:
     """
     This class is designed to hold all the details required for generating a podcast.
@@ -58,23 +56,42 @@ class Podcast:
          "    </channel>\n"
          "</rss>")
 
-    def __init__(self, title=None):
-        self.feed_title = 'title'
-        self.feed_link = ''
-        self.copyright = ''
-        self.feed_desc = ''
-        self.feed_image_url = ''
-        self.feed_category = ''
-        self.feed_subcategory = ''
-        self.feed_author = ''
-        self.feed_owner = ''
-        self.feed_email = ''
-        self.feed_summary = ''
-        self.feed_build = ''
-        self.items_string = ''
-        self.entries = []
+    def __init__(self, *initial_data, **kwargs):
+        """
 
-        pass
+        :param initial_data:
+         one or more dictionaries with the following fields:
+            {
+            feed_title : ''
+            feed_link : ''
+            copyright : ''
+            feed_desc : ''
+            feed_image_url : ''
+            feed_category : ''
+            feed_subcategory : ''
+            feed_author : ''
+            feed_owner : ''
+            feed_email : ''
+            feed_summary : ''
+            feed_build : ''
+            items_string : ''
+            }
+
+        :param kwargs:
+            Any of the dictionary fields, but also
+            download
+            download_path
+
+        """
+        self.download = False
+        self.download_path = None
+        self.limit = 0
+        for dictionary in initial_data:
+            for key in dictionary:
+                setattr(self, key, dictionary[key])
+        for key in kwargs:
+            setattr(self, key, kwargs[key])
+        self.__entries = []
 
     class Entry:
         """
@@ -113,106 +130,41 @@ class Podcast:
         raise NotImplementedError
 
     def write_rss(self, filename=None):
+        self.feed_build = datetime.now().strftime("%a, %d %b %Y %H:%M:%S") + ' +0000'  # Mon, 20 Jan 2020 19:25:57 +0000
+        if filename is not None:
+            with open(filename, 'w') as outfile:
+                outfile.write(str(self))
+        else:
+            print(self)
         pass
 
+    def __repr__(self):
+        return str(vars(self))
 
-# each "show" has its own object, that gets updater functions added to it
-class PodCastOld(FeedGenerator):
-    def __init__(self):
-        """
-        This wrapper of FeedGenerator adds the podcast extension at creation.
-        """
-        super().__init__()
-        self.__download = False  # this is to signal if the podcast should save the file when it updates
-        self.load_extension('podcast')
-        self.__downloadpath = None
-
-    def get_download(self, both=False):
-        if both:
-            return {'download': self.__download, 'path': self.__downloadpath}
-        else:
-            return self.__download
-
-    def set_download(self, download, path=None):
-        if download:
-            if path is None:
-                path = self.__downloadpath
-            try:
-                assert path is not None
-            except AssertionError:
-                print('If download is set, a path must be set. Use ".set_download(True, path_as_a_string)"\n'
-                      ' Because no path has been given,download is not set.')
-                self.__download = False
-                return self.__download
-            # if there is a path provided, go ahead and set download to true and set the path to the provided string
-            self.__download = True
-            self.__downloadpath = path
-        else:
-            self.__download = False
-        return {'download': self.__download, 'path': self.__downloadpath}
-
+    def __str__(self):
+        return self.feed_text.format(**vars(self))
 
 class OnePlacePodCast(PodCast):
-    def __init__(self, page=None, feedtitle=None, feeddesc=None, feedid=None):
+    def __init__(self, *dicts, **kwargs):
         """
-        a wrapper around the PodCast init(), which adds a few OnePlace specific details, and the
-        xpaths needed for the extraction of episode details
-        :param page: the url that is fetched during update
         """
-        super().__init__()
-        if feedtitle is not None:
-            self.title(feedtitle)
-        if feeddesc is not None:
-            self.description(feeddesc)
-        if feedid is not None:
-            self.id(feedid)
-        else:
-            self.id(page)
-        self.link(href='http://oneplace.com', rel='alternate')
-        self.language('en')
-        self.podcast.itunes_category('Christianity')
-        self.podcast.itunes_category('Christianity')
-        self.pageUrl = page  # this is to be accessible and updated when this class is instanced
+        super.__init__(self, *dicts, **kwargs)
+        self.feed_category = 'Religion &amp; Spirituality'
+        self.feed_subcategory = 'Christianity'
         self.titlexpath = '//div[@class="overlay2"]//h2'  # might need customizing for each page?
         self.descxpath = '//div[@class="description"]'
         self.audioxpath = '//audio'
         self.datexpath = '//div[@class="overlay2"]//div[@class="liveDate"]'
-        # the pageUrl should be the url to be retrieved during updating.
-        self.limit = 6
+        self.page = None
 
-    def rss_file(self, filename):
-        fields = dict(self_url=None,
-                      feed_title=None,
-                      feed_link=None,
-                      copyright=None,
-                      feed_desc=None,
-                      feed_image_url=None,
-                      feed_category=None,
-                      feed_subcategory=None,
-                      feed_author=None,
-                      feed_owner=None,
-                      feed_email=None,
-                      feed_summary=feed_desc,
-                      feed_build=datetime.now().strftime(
-                          "%a, %d %b %Y %H:%M:%S") + ' +0000')  # Mon, 20 Jan 2020 19:25:57 +0000
-        with open('template_feed_head.xml', 'r') as f:
-            template = f.read()
-        with open('template_item.xml', 'r') as f:
-            item_text = f.read()
-        with open(f'{selflink}', 'w') as rss:
-            rss.write(template.format(**fields))
-        with open(f'{selflink}', 'a') as rss:
-            for e in self.entry():
-                rss.write(item_text.format(**ep_fields))
 
     def refresh(self, page=None):
         """
-        Starts a headless Firefox browser to load the page and render the source. That source is passed into
-        BeautifulSoup to easily extract the latest link, title, description
+        Starts a headless Firefox browser to load the page and render and navigate the source.
         :return:
         """
-        if page is None:
-            page = self.pageUrl
+        if page is None and self.page is not None:
+            page = self.page
         # would be good to do some regex checking on page passed in
         opts = Options()
         opts.headless = True
@@ -227,7 +179,7 @@ class OnePlacePodCast(PodCast):
         browser.close()
         new = False  # assume it isn't new until proven
         try:
-            newest = self.entry()[0]
+            newest = self.entry()[0]  # TODO deal with entry() method that no longer exists
         except IndexError:
             # if the list has no elements, then any episode is a 'new' episode
             new = True

@@ -4,3 +4,20 @@ click button:
 //button[@class='audio-module-listen']
 then
 //audio src
+
+
+{
+            feed_title : ''
+            feed_link : ''
+            copyright : ''
+            feed_desc : ''
+            feed_image_url : ''
+            feed_category : ''
+            feed_subcategory : ''
+            feed_author : ''
+            feed_owner : ''
+            feed_email : ''
+            feed_summary : ''
+            feed_build : ''
+            items_string : ''
+            }
