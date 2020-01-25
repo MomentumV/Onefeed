@@ -90,15 +90,17 @@ class Podcast:
          "</rss>")
 
     def __init__(self):
+        pass
 
     def refresh(self, page=None):
         raise NotImplementedError
 
     def write_rss(self, filename=None):
+        pass
 
 
 # each "show" has its own object, that gets updater functions added to it
-class PodCast(FeedGenerator):
+class PodCastOld(FeedGenerator):
     def __init__(self):
         """
         This wrapper of FeedGenerator adds the podcast extension at creation.
