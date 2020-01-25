@@ -147,6 +147,7 @@ class Podcast:
 class OnePlacePodCast(PodCast):
     def __init__(self, *dicts, **kwargs):
         """
+        docstring TODO yeah
         """
         super.__init__(self, *dicts, **kwargs)
         self.feed_category = 'Religion &amp; Spirituality'
@@ -166,12 +167,13 @@ class OnePlacePodCast(PodCast):
         if page is None and self.page is not None:
             page = self.page
         # would be good to do some regex checking on page passed in
+        # Firefox headless browser
         opts = Options()
         opts.headless = True
         assert opts.headless  # Operating in headless mode
         browser = Firefox(options=opts)
         browser.get(page)
-        time.sleep(4)
+        time.sleep(4)  # wait for page to load and render
         ep_title = browser.find_element_by_xpath(self.titlexpath).text
         ep_description = browser.find_element_by_xpath(self.descxpath).text
         ep_url = browser.find_element_by_xpath(self.audioxpath).get_attribute('src')
@@ -179,7 +181,7 @@ class OnePlacePodCast(PodCast):
         browser.close()
         new = False  # assume it isn't new until proven
         try:
-            newest = self.entry()[0]  # TODO deal with entry() method that no longer exists
+            newest = self.entries[0]
         except IndexError:
             # if the list has no elements, then any episode is a 'new' episode
             new = True
@@ -192,14 +194,16 @@ class OnePlacePodCast(PodCast):
             else:
                 new = True
         assert new
-        ep = self.add_entry()
-        ep.id(str(hash(ep_url)))
-        ep.title(ep_title)
-        ep.description(ep_description)
-        ep.enclosure(ep_url, 0, 'audio/mpeg')
-        ep.pubDate(ep_date)
-        if self.get_download():
-            filename = '\\'.join([self.get_download(both=True)['path'], ep_title])
+        ep = self.entry()
+        ep.guid = str(hash(ep_url))
+        ep.title = ep_title
+        ep.description = ep_description
+        ep.author = self.feed_author
+        ep.pubdate = ep_date  # does this need to be formatted like the update date?
+        ep.url = ep_url
+        self.entries = [ep] + self.entries
+        if self.download:
+            filename = '\\'.join([self.download_path, ep_title])
             filename = filename + '.' + ep_url.split('.')[-1]
             url = ep_url
             response = requests.get(url, stream=True)
@@ -207,6 +211,6 @@ class OnePlacePodCast(PodCast):
                 shutil.copyfileobj(response.raw, out_file)
             del response
         # respect episode count limit
-        while 0 < self.limit < len(self.entry()):
-            self.remove_entry(self.entry()[-1])
+        while 0 < self.limit < len(self.entries):
+            self.entries.pop()
         return ep
