@@ -9,38 +9,7 @@ from selenium.webdriver.firefox.options import Options
 import time
 from feedgen.feed import FeedGenerator
 
-class Entry:
-    """
-    A single object that holds all the details needed for a podcast item tag
 
-    """
-    item_template = \
-        ('<item>\n'
-         '      <guid isPermaLink="false"><![CDATA[{guid}]]></guid>\n'
-         '      <title>{title}</title>\n'
-         '      <description>\n'
-         '      {description}\n'
-         '      </description>\n'
-         '      <itunes:author>{author}\n'
-         '      </itunes:author>\n'
-         '      <itunes:subtitle/>\n'
-         '      <itunes:summary>\n'
-         '       {description}\n'
-         '      </itunes:summary>\n'
-         '      <pubDate>{pubdate}</pubDate>\n'
-         '      <enclosure url="{url}" length="0" type="audio/mpeg"/>\n'
-         ' </item>')
-
-    def __init__(self):
-        self.guid = ''
-        self.title = ''
-        self.description = ''
-        self.author = ''
-        self.pubdate = ''
-        self.url = ''
-
-    def __repr__(self):
-        return self.item_template.format(**vars(self))
 
 
 class Podcast:
@@ -89,7 +58,41 @@ class Podcast:
          "    </channel>\n"
          "</rss>")
 
-    def __init__(self):
+    class Entry:
+        """
+        A single object that holds all the details needed for a podcast item tag
+
+        """
+        item_template = \
+            ('<item>\n'
+             '      <guid isPermaLink="false"><![CDATA[{guid}]]></guid>\n'
+             '      <title>{title}</title>\n'
+             '      <description>\n'
+             '      {description}\n'
+             '      </description>\n'
+             '      <itunes:author>{author}\n'
+             '      </itunes:author>\n'
+             '      <itunes:subtitle/>\n'
+             '      <itunes:summary>\n'
+             '       {description}\n'
+             '      </itunes:summary>\n'
+             '      <pubDate>{pubdate}</pubDate>\n'
+             '      <enclosure url="{url}" length="0" type="audio/mpeg"/>\n'
+             ' </item>')
+
+        def __init__(self):
+            self.guid = ''
+            self.title = ''
+            self.description = ''
+            self.author = ''
+            self.pubdate = ''
+            self.url = ''
+
+        def __repr__(self):
+            return self.item_template.format(**vars(self))
+
+    def __init__(self, title=None):
+        self.title = 'title'
         pass
 
     def refresh(self, page=None):
