@@ -24,9 +24,9 @@ class PodCast:
          "xmlns:media=\"http://search.yahoo.com/mrss/\" "
          "xmlns:content=\"http://purl.org/rss/1.0/modules/content/\">\n"
          "<channel>\n"
-         "    <atom:link href=\"{self_url}\" rel=\"self\" type=\"application/rss+xml\"/>\n"
+         "    <atom:link href=\"{self_link}\" rel=\"self\" type=\"application/rss+xml\"/>\n"
          "    <title>{feed_title}</title>\n"
-         "    <link>{feed_link}</link>\n"
+         "    <link>{page}</link>\n"
          "    <copyright>{copyright}</copyright>\n"
          "    <description>\n"
          "        {feed_desc}\n"
@@ -111,7 +111,7 @@ class PodCast:
         # populate parameters from keywords passed in
         for key in kwargs:
             setattr(self, key, kwargs[key])
-        self.__entries = []
+        self.entries = []
 
     class Entry:
         """
