@@ -1,6 +1,6 @@
 # import os
 import shutil
-import urllib
+import hashlib
 
 import requests
 from selenium.webdriver import Firefox
@@ -219,7 +219,9 @@ class OnePlacePodCast(PodCast):
                 new = True
         assert new
         ep = self.Entry()
-        ep.guid = str(hash(ep_url))
+        m = hashlib.md5()
+        m.update(ep.url.encode())
+        ep.guid = m.hexdigest()
         ep.title = ep_title
         ep.description = ep_description
         ep.author = self.feed_author
