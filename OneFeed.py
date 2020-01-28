@@ -36,7 +36,7 @@ class PodCast:
          "            {feed_image_url}\n"
          "        </url>\n"
          "        <title>{feed_title}</title>\n"
-         "        <link>{feed_link}</link>\n"
+         "        <link>{page}</link>\n"
          "    </image>\n"
          "    <itunes:image href=\"{feed_image_url}\"/>\n"
          "    <language>en</language>\n"
@@ -144,8 +144,11 @@ class PodCast:
             self.pubdate = ''
             self.url = ''
 
-        def __repr__(self):
+        def __str__(self):
             return self.item_template.format(**vars(self))
+
+        def __repr__(self):
+            return type(self)
 
     def refresh(self, page=None):
         raise NotImplementedError
@@ -171,6 +174,7 @@ class OnePlacePodCast(PodCast):
         """
         docstring TODO yeah
         """
+        super().__init__(*dicts, **kwargs)
         self.feed_category = 'Religion &amp; Spirituality'
         self.feed_subcategory = 'Christianity'
         self.titlexpath = '//div[@class="overlay2"]//h2'  # might need customizing for each page?
@@ -178,7 +182,6 @@ class OnePlacePodCast(PodCast):
         self.audioxpath = '//audio'
         self.datexpath = '//div[@class="overlay2"]//div[@class="liveDate"]'
         self.page = None
-        super().__init__(*dicts, **kwargs)
 
     def refresh(self, page=None):
         """
