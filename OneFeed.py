@@ -88,7 +88,8 @@ class PodCast:
         self.limit = 0
         empty_dict = {
             'feed_title': '',
-            'feed_link': '',
+            'self_link': '',
+            'page': '',
             'copyright': '',
             'feed_desc': '',
             'feed_image_url': '',
@@ -207,7 +208,7 @@ class OnePlacePodCast(PodCast):
             new = True
         if not new:
             # check to see if the episode is the same as the last one. If so, don't add it again!
-            if newest.title() == ep_title:
+            if newest.title == ep_title:
                 return None
                 # this could certainly be more sophisticated than checking for a match on the most recent,
                 # but this is probably good enough.
