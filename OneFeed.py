@@ -174,6 +174,7 @@ class OnePlacePodCast(PodCast):
         """
         docstring TODO yeah
         """
+        self.page = None
         super().__init__(*dicts, **kwargs)
         self.feed_category = 'Religion &amp; Spirituality'
         self.feed_subcategory = 'Christianity'
@@ -181,7 +182,6 @@ class OnePlacePodCast(PodCast):
         self.descxpath = '//div[@class="description"]'
         self.audioxpath = '//audio'
         self.datexpath = '//div[@class="overlay2"]//div[@class="liveDate"]'
-        self.page = None
 
     def refresh(self, page=None):
         """
