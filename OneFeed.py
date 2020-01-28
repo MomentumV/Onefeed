@@ -148,7 +148,7 @@ class PodCast:
             return self.item_template.format(**vars(self))
 
         def __repr__(self):
-            return type(self)
+            return str(type(self))
 
     def refresh(self, page=None):
         raise NotImplementedError
