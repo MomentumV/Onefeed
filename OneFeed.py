@@ -200,7 +200,8 @@ class OnePlacePodCast(PodCast):
         browser.get(page)
         time.sleep(4)  # wait for page to load and render
         ep_title = browser.find_element_by_xpath(self.titlexpath).text
-        ep_description = browser.find_element_by_xpath(self.descxpath).text
+        ep_description = browser.find_element_by_xpath(self.descxpath).text.encode('ascii',
+                                                                                   'xmlcharrefreplace').decode()
         ep_url = browser.find_element_by_xpath(self.audioxpath).get_attribute('src')
         ep_date_text = browser.find_element_by_xpath(self.datexpath).text
         ep_date = datetime.strptime(ep_date_text, '%B %d, %Y').strftime("%a, %d %b %Y %H:%M:%S GMT")
