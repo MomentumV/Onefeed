@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <atom:link href="string1" rel="self" type="application/rss+xml"/>
+        <title>string2</title>
+        <link>string3</link>
+        <copyright>string4</copyright>
+        <description>
+            string5
+        </description>
+        <image>
+            <url>
+                string6
+            </url>
+            <title>string2</title>
+            <link>string3</link>
+        </image>
+        <itunes:image href="string6"/>
+        <language>en</language>
+        <itunes:explicit>no</itunes:explicit>
+        <itunes:category text="string7">
+            <itunes:category text="string8"/>
+        </itunes:category>
+        <itunes:author>string9</itunes:author>
+        <itunes:owner>
+            <itunes:name>string10</itunes:name>
+            <itunes:email>string11</itunes:email>
+        </itunes:owner>
+        <itunes:summary>string5
+        </itunes:summary>
+        <lastBuildDate>Thu, 23 Jan 2020 14:58:51 +0000</lastBuildDate>

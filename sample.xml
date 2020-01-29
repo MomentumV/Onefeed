@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://www.itunes.com/dtds/podcast-1.0.dtd ">
+    <channel>
+        <atom:link href="http://momentumv.github.io/Onefeed/RadioTheatre.xml" rel="self" type="application/rss+xml"/>
+        <title>Radio Theatre</title>
+        <link>https://www.oneplace.com/ministries/focus-on-the-familys-radio-theatre/</link>
+        <copyright>Focus on the Family</copyright>
+        <description>
+            The Weekly broadcast of the award winning audio dramas from Focus on the Family, hosted by OnePlace.com
+        </description>
+        <image>
+            <url>
+                https://momentumv.github.io/Onefeed/Files/RT.jpg
+            </url>
+            <title>Radio Theatre</title>
+            <link>https://www.oneplace.com/ministries/focus-on-the-familys-radio-theatre/</link>
+        </image>
+        <itunes:image href="https://momentumv.github.io/Onefeed/Files/RT.jpg"/>
+        <language>en</language>
+        <itunes:explicit>no</itunes:explicit>
+        <itunes:category text="Religion &amp; Spirituality">
+            <itunes:category text="Christianity"/>
+        </itunes:category>
+        <itunes:author>Focus on the Family</itunes:author>
+        <itunes:owner>
+            <itunes:name>Focus on the Family</itunes:name>
+            <itunes:email>help@FocusontheFamily.com</itunes:email>
+        </itunes:owner>
+        <itunes:summary>The Weekly broadcast of the award winning audio dramas from Focus on the Family, hosted by
+            OnePlace.com
+        </itunes:summary>
+        <lastBuildDate>Wed, 29 Jan 2020 04:00:16 GMT</lastBuildDate>
+        <item>
+            <guid isPermaLink="false"><![CDATA[d41d8cd98f00b204e9800998ecf8427e]]></guid>
+            <title>The Hiding Place, Part 04 of 09</title>
+            <description>
+                "The Hiding Place" is the story of two spinster daughters, Corrie and Betsie, unlikely heroes who became
+                the center of a major underground operation to hide Jewish refugees from the occupying Germans. Even
+                when betrayed and sent away to the dreaded Ravensbruck concentration camp, they manage to create another
+                Hiding Place for those around them. This innovative audio drama closely follows the account of Corrie
+                Ten Boom and features a moving musical score.
+            </description>
+            <itunes:author>Focus on the Family
+            </itunes:author>
+            <itunes:subtitle/>
+            <itunes:summary>
+                "The Hiding Place" is the story of two spinster daughters, Corrie and Betsie, unlikely heroes who became
+                the center of a major underground operation to hide Jewish refugees from the occupying Germans. Even
+                when betrayed and sent away to the dreaded Ravensbruck concentration camp, they manage to create another
+                Hiding Place for those around them. This innovative audio drama closely follows the account of Corrie
+                Ten Boom and features a moving musical score.
+            </itunes:summary>
+            <pubDate>Sat, 25 Jan 2020 00:00:00 GMT</pubDate>
+            <enclosure
+                    url="https://zcast.swncdn.com/episodes/zcast/focus-on-the-familys-radio-theatre/2020/01-25/792547/999_201912551053.mp3"
+                    length="0" type="audio/mpeg"/>
+        </item>
+        <item>
+            <guid isPermaLink="false"><![CDATA[d41d8cd98f00b204e9800998ecf8427e]]></guid>
+            <title>The Hiding Place, Part 03 of 09</title>
+            <description>
+                "The Hiding Place" is the story of two spinster daughters, Corrie and Betsie, unlikely heroes who became
+                the center of a major underground operation to hide Jewish refugees from the occupying Germans. Even
+                when betrayed and sent away to the dreaded Ravensbruck concentration camp, they manage to create another
+                Hiding Place for those around them. This innovative audio drama closely follows the account of Corrie
+                Ten Boom and features a moving musical score.
+            </description>
+            <itunes:author>Focus on the Family
+            </itunes:author>
+            <itunes:subtitle/>
+            <itunes:summary>
+                "The Hiding Place" is the story of two spinster daughters, Corrie and Betsie, unlikely heroes who became
+                the center of a major underground operation to hide Jewish refugees from the occupying Germans. Even
+                when betrayed and sent away to the dreaded Ravensbruck concentration camp, they manage to create another
+                Hiding Place for those around them. This innovative audio drama closely follows the account of Corrie
+                Ten Boom and features a moving musical score.
+            </itunes:summary>
+            <pubDate>Sat, 18 Jan 2020 00:00:00 GMT</pubDate>
+            <enclosure
+                    url="https://zcast.swncdn.com/episodes/zcast/focus-on-the-familys-radio-theatre/2020/01-18/792546/999_201912551015.mp3"
+                    length="0" type="audio/mpeg"/>
+        </item>
+        <item>
+            <guid isPermaLink="false"><![CDATA[d41d8cd98f00b204e9800998ecf8427e]]></guid>
+            <title>The Hiding Place, Part 02 of 09</title>
+            <description>
+                "The Hiding Place" is the story of two spinster daughters, Corrie and Betsie, unlikely heroes who became
+                the center of a major underground operation to hide Jewish refugees from the occupying Germans. Even
+                when betrayed and sent away to the dreaded Ravensbruck concentration camp, they manage to create another
+                Hiding Place for those around them. This innovative audio drama closely follows the account of Corrie
+                Ten Boom and features a moving musical score.
+            </description>
+            <itunes:author>Focus on the Family
+            </itunes:author>
+            <itunes:subtitle/>
+            <itunes:summary>
+                "The Hiding Place" is the story of two spinster daughters, Corrie and Betsie, unlikely heroes who became
+                the center of a major underground operation to hide Jewish refugees from the occupying Germans. Even
+                when betrayed and sent away to the dreaded Ravensbruck concentration camp, they manage to create another
+                Hiding Place for those around them. This innovative audio drama closely follows the account of Corrie
+                Ten Boom and features a moving musical score.
+            </itunes:summary>
+            <pubDate>Sat, 11 Jan 2020 00:00:00 GMT</pubDate>
+            <enclosure
+                    url="https://zcast.swncdn.com/episodes/zcast/focus-on-the-familys-radio-theatre/2020/01-11/792545/999_20191255103.mp3"
+                    length="0" type="audio/mpeg"/>
+        </item>
+        <item>
+            <guid isPermaLink="false"><![CDATA[81233e64203dbcb6db28b47855c21d00]]></guid>
+            <title>The Hiding Place, Part 01 of 09</title>
+            <description>
+                "The Hiding Place" is the story of two spinster daughters, Corrie and Betsie, unlikely heroes who became
+                the center of a major underground operation to hide Jewish refugees from the occupying Germans. Even
+                when betrayed and sent away to the dreaded Ravensbruck concentration camp, they manage to create another
+                Hiding Place for those around them. This innovative audio drama closely follows the account of Corrie
+                Ten Boom and features a moving musical score.
+            </description>
+            <itunes:author>Focus on the Family
+            </itunes:author>
+            <itunes:subtitle/>
+            <itunes:summary>
+                "The Hiding Place" is the story of two spinster daughters, Corrie and Betsie, unlikely heroes who became
+                the center of a major underground operation to hide Jewish refugees from the occupying Germans. Even
+                when betrayed and sent away to the dreaded Ravensbruck concentration camp, they manage to create another
+                Hiding Place for those around them. This innovative audio drama closely follows the account of Corrie
+                Ten Boom and features a moving musical score.
+            </itunes:summary>
+            <pubDate>Sat, 04 Jan 2020 00:00:00 GMT</pubDate>
+            <enclosure
+                    url="https://zcast.swncdn.com/episodes/zcast/focus-on-the-familys-radio-theatre/2020/01-04/792544/999_20191255953.mp3"
+                    length="0" type="audio/mpeg"/>
+        </item>
+    </channel>
+</rss>

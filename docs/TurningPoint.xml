@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<channel>
+    <atom:link href="http://momentumv.github.io/Onefeed/TurningPoint.xml" rel="self" type="application/rss+xml"/>
+    <title>Turning Point</title>
+    <link>https://www.oneplace.com/ministries/turning-point/</link>
+    <copyright>Focus on the Family</copyright>
+    <description>
+        Dr. David Jeremiah's Turning Point Delivers the Unchanging Word of God to an Ever-Changing World
+    </description>
+    <image>
+        <url>
+            https://momentumv.github.io/Onefeed/Files/TP.jpg
+        </url>
+        <title>Turning Point</title>
+        <link>https://www.oneplace.com/ministries/turning-point/</link>
+    </image>
+    <itunes:image href="https://momentumv.github.io/Onefeed/Files/TP.jpg"/>
+    <language>en</language>
+    <itunes:explicit>no</itunes:explicit>
+    <itunes:category text="Religion &amp; Spirituality">
+        <itunes:category text="Christianity"/>
+    </itunes:category>
+    <itunes:author>David Jeremiah</itunes:author>
+    <itunes:owner>
+        <itunes:name>David Jeremiah</itunes:name>
+        <itunes:email>info@davidjeremiah.org</itunes:email>
+    </itunes:owner>
+    <itunes:summary>Dr. David Jeremiah's Turning Point Delivers the Unchanging Word of God to an Ever-Changing World
+    </itunes:summary>
+    <lastBuildDate>Wed, 29 Jan 2020 04:57:23 GMT</lastBuildDate>
+ <item>
+      <guid isPermaLink="false"><![CDATA[d41d8cd98f00b204e9800998ecf8427e]]></guid>
+      <title>God's Basic Plan for Security</title>
+      <description>
+      The world tells us that accumulating wealth and possessions is the path to lasting joy. But God’s Word says that’s a lie, and gives us a better way. Dr. David Jeremiah highlights the night-and-day differences between investing in earthly treasures and making heavenly investments. 
+      </description>
+      <itunes:author>David Jeremiah
+      </itunes:author>
+      <itunes:subtitle/>
+      <itunes:summary>
+       The world tells us that accumulating wealth and possessions is the path to lasting joy. But God’s Word says that’s a lie, and gives us a better way. Dr. David Jeremiah highlights the night-and-day differences between investing in earthly treasures and making heavenly investments. 
+      </itunes:summary>
+      <pubDate>Tue, 28 Jan 2020 00:00:00 GMT</pubDate>
+      <enclosure url="https://zcast.swncdn.com/episodes/zcast/turning-point/2020/01-28/794847/94_202012105356.mp3" length="0" type="audio/mpeg"/>
+ </item>
+    </channel>
+</rss>
