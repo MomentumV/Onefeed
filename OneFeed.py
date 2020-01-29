@@ -155,7 +155,7 @@ class PodCast:
 
     def write_rss(self, filename=None):
         self.items_string = '\n'.join([str(e) for e in self.entries])
-        self.feed_build = datetime.now().strftime("%a, %d %b %Y %H:%M:%S") + ' +0000'  # Mon, 20 Jan 2020 19:25:57 +0000
+        self.feed_build = datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S GMT")  # Mon, 20 Jan 2020 19:25:57 GMT
         if filename is not None:
             with open(filename, 'w') as outfile:
                 outfile.write(str(self))
@@ -202,7 +202,8 @@ class OnePlacePodCast(PodCast):
         ep_title = browser.find_element_by_xpath(self.titlexpath).text
         ep_description = browser.find_element_by_xpath(self.descxpath).text
         ep_url = browser.find_element_by_xpath(self.audioxpath).get_attribute('src')
-        ep_date = browser.find_element_by_xpath(self.datexpath).text
+        ep_date_text = browser.find_element_by_xpath(self.datexpath).text
+        ep_date = datetime.strptime(ep_date_text, '%B %d, %Y').strftime("%a, %d %b %Y %H:%M:%S GMT")
         browser.close()
         new = False  # assume it isn't new until proven
         try:
@@ -226,7 +227,7 @@ class OnePlacePodCast(PodCast):
         ep.title = ep_title
         ep.description = ep_description
         ep.author = self.feed_author
-        ep.pubdate = ep_date  # does this need to be formatted like the update date?
+        ep.pubdate = ep_date
         ep.url = ep_url
         self.entries = [ep] + self.entries
         if self.download:
