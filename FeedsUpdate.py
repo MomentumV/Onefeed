@@ -13,16 +13,16 @@ with open('update.log', 'a') as log:
             ep = feed.refresh()
         except:
             log.write(str(datetime.now()))
-            log.write(f':\texception updating {feed.title()}\n')
+            log.write(f':\texception updating {feed.feed_title}\n')
         if ep is None:
             log.write(str(datetime.now()))
-            log.write(f':\tNo new show for {feed.title()}\n')
+            log.write(f':\tNo new show for {feed.feed_title}\n')
         else:
             log.write(str(datetime.now()))
-            log.write(f':\t{ep.title()} added to {feed.title()}\n')
+            log.write(f':\t{ep.title} added to {feed.feed_title}\n')
             # write out the rss file if there is an episode added
             os.chdir(r'.\docs')
-            # feed.rss_file()
+            feed.write_rss(feed.self_link.split(r'/')[-1])
             os.chdir(r'..')
 
     # the refresh wil download any flagged as such.
