@@ -154,6 +154,7 @@ class PodCast:
         raise NotImplementedError
 
     def write_rss(self, filename=None):
+        self.items_string = '\n'.join([str(e) for e in self.entries])
         self.feed_build = datetime.now().strftime("%a, %d %b %Y %H:%M:%S") + ' +0000'  # Mon, 20 Jan 2020 19:25:57 +0000
         if filename is not None:
             with open(filename, 'w') as outfile:
