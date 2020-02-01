@@ -2104,3 +2104,59 @@ Unable to read VR Path Registry from C:\Users\morde\AppData\Local\openvr\openvrp
 1580277531988	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "4294967311"
 1580277532917	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.oneplace.com/ministries/turning-point/"
 *** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+1580573584729	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\morde\\AppData\\Local\\Temp\\rust_mozprofile.kMpBfc6PYYvO"
+*** You are running in headless mode.
+Unable to read VR Path Registry from C:\Users\morde\AppData\Local\openvr\openvrpaths.vrpath
+1580573585822	Marionette	INFO	Enabled via --marionette
+Unable to read VR Path Registry from C:\Users\morde\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\morde\AppData\Local\openvr\openvrpaths.vrpath
+[Child 12976, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 12976, Chrome_Ch1580573587991	Marionette	INFO	Listening on port 57959
+Unable to read VR Path Registry from C:\Users\morde\AppData\Local\openvr\openvrpaths.vrpath
+1580573588364	Marionette	WARN	TLS certificate errors will be ignored for this session
+1580573588472	Marionette	DEBUG	Register listener.js for window 4294967297
+1580573588521	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1580573588823	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1580573588823	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1580573590800	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.oneplace.com/ministries/focus-on-the-familys-radio-theatre/"
+1580573591898	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "4294967311"
+1580573594008	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.oneplace.com/ministries/focus-on-the-familys-radio-theatre/"
+1580573700705	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\morde\\AppData\\Local\\Temp\\rust_mozprofile.fyV5T47WdKti"
+*** You are running in headless mode.
+Unable to read VR Path Registry from C:\Users\morde\AppData\Local\openvr\openvrpaths.vrpath
+1580573701876	Marionette	INFO	Enabled via --marionette
+Unable to read VR Path Registry from C:\Users\morde\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\morde\AppData\Local\openvr\openvrpaths.vrpath
+1580573703953	Marionette	INFO	Listening on port 58136
+Unable to read VR Path Registry from C:\Users\morde\AppData\Local\openvr\openvrpaths.vrpath
+1580573704342	Marionette	WARN	TLS certificate errors will be ignored for this session
+1580573704484	Marionette	DEBUG	Register listener.js for window 4294967297
+1580573704537	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1580573704782	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1580573704782	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1580573706621	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.oneplace.com/ministries/focus-on-the-familys-radio-theatre/"
+1580573710809	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "4294967307"
+1580573713111	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.oneplace.com/ministries/focus-on-the-familys-radio-theatre/"
+[Child 12048, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 12048, Chrome_C[Parent 652, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6256, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+1580573723735	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\morde\\AppData\\Local\\Temp\\rust_mozprofile.TV67c78wLinz"
+*** You are running in headless mode.
+Unable to read VR Path Registry from C:\Users\morde\AppData\Local\openvr\openvrpaths.vrpath
+1580573725762	Marionette	INFO	Enabled via --marionette
+Unable to read VR Path Registry from C:\Users\morde\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\morde\AppData\Local\openvr\openvrpaths.vrpath
+[Child 16964, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 16964, Chrome_ChiUnable to read VR Path Registry from C:\Users\morde\AppData\Local\openvr\openvrpaths.vrpath
+1580573730232	Marionette	INFO	Listening on port 58275
+1580573730674	Marionette	WARN	TLS certificate errors will be ignored for this session
+1580573730784	Marionette	DEBUG	Register listener.js for window 4294967297
+1580573730817	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1580573731328	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1580573731328	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1580573733178	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.oneplace.com/ministries/turning-point/"
+1580573734282	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "4294967309"
+1580573735875	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.oneplace.com/ministries/turning-point/"
+[Child 2920, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 2920, Chrome_Chil*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
