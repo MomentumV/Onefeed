@@ -30,4 +30,4 @@ with open('update.log', 'a') as log:
 with open('feeds.p', 'wb') as file:
     pickle.dump(feeds, file)
 # commit the project folder and push to github
-git_code.git_push()
+git_code.git_push('script update ' + str(datetime.today()))
